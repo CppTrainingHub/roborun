@@ -1,0 +1,6 @@
+builtin_interfaces/Time stamp
+uint64 snapshot_sequence
+int64 business_time_ms
+int32 primary_alarm_index
+string primary_alarm_code
+roborun_interfaces/AlarmStateEntry[] alarms

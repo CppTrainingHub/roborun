@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "tools": [
+    {"name": "GRIPPER", "type": "gripper", "commanded_state": "OPEN", "feedback_state": "OPEN"}
+  ]
+}

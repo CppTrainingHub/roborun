@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "signals": [
+    {"name": "PART_READY", "direction": "DI", "initial": false},
+    {"name": "GRIP_OK", "direction": "DI", "initial": false},
+    {"name": "CLAMP_ENABLE", "direction": "DO", "initial": false}
+  ]
+}

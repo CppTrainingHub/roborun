@@ -1,0 +1,14 @@
+{
+  "schema_version": 2,
+  "motions": [
+    {"movej": 1, "outcome": "delayed_success", "delay_ms": 10}
+  ],
+  "controls": [
+    {"time_ms": 1, "action": "PAUSE", "source": "cli-scenario"},
+    {"time_ms": 20, "action": "RESUME", "source": "cli-scenario"}
+  ],
+  "stops": [
+    {"episode": 1, "outcome": "immediate_confirmation"},
+    {"episode": 2, "outcome": "immediate_confirmation"}
+  ]
+}

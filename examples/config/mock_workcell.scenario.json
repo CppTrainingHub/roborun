@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "motions": [
+    {"movej": 1, "outcome": "delayed_success", "delay_ms": 75}
+  ],
+  "events": [
+    {"time_ms": 200, "kind": "DI", "name": "PART_READY", "value": true},
+    {"time_ms": 350, "kind": "TOOL", "name": "GRIPPER", "state": "CLOSED"}
+  ]
+}

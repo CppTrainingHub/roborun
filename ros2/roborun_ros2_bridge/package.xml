@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>roborun_ros2_bridge</name>
+  <version>0.1.0</version>
+  <description>In-process ROS 2 Action bridge for the RoboRun Runtime.</description>
+  <maintainer email="maintainers@example.invalid">RoboRun maintainers</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_action</depend>
+  <depend>sensor_msgs</depend>
+  <depend>roborun_interfaces</depend>
+  <test_depend>ament_cmake_gtest</test_depend>
+</package>

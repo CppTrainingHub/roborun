@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "scene_schema": "roborun.workcell.v1",
+  "objects": [
+    {
+      "alias": "/RoboRun",
+      "type": "dummy",
+      "parent_alias": "",
+      "pose": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "alias": "/RoboRun/UR5",
+      "type": "model",
+      "parent_alias": "/RoboRun",
+      "pose": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "alias": "/RoboRun/UR5/ToolMount",
+      "type": "dummy",
+      "parent_alias": "/RoboRun/UR5",
+      "pose": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "alias": "/RoboRun/UR5/ToolMount/RG2",
+      "type": "model",
+      "parent_alias": "/RoboRun/UR5/ToolMount",
+      "pose": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "alias": "/RoboRun/UR5/ToolMount/RG2/Joint",
+      "type": "joint",
+      "parent_alias": "/RoboRun/UR5/ToolMount/RG2",
+      "pose": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "alias": "/RoboRun/UR5/ToolMount/RG2/TCP",
+      "type": "dummy",
+      "parent_alias": "/RoboRun/UR5/ToolMount/RG2",
+      "pose": [
+        0,
+        0,
+        0.19,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "alias": "/RoboRun/Workpiece",
+      "type": "shape",
+      "parent_alias": "/RoboRun",
+      "pose": [
+        -0.2951062214,
+        -0.3900437137,
+        0.9107258568,
+        0.3774108144,
+        -0.6413791194,
+        -0.0705928859,
+        0.6642368153
+      ]
+    },
+    {
+      "alias": "/RoboRun/PICK",
+      "type": "dummy",
+      "parent_alias": "/RoboRun",
+      "pose": [
+        -0.2951062214,
+        -0.3900437137,
+        0.9107258568,
+        0.3774108144,
+        -0.6413791194,
+        -0.0705928859,
+        0.6642368153
+      ]
+    },
+    {
+      "alias": "/RoboRun/PLACE",
+      "type": "dummy",
+      "parent_alias": "/RoboRun",
+      "pose": [
+        -0.4047793199,
+        -0.1161940509,
+        0.9722340129,
+        -0.0015342691,
+        -0.7157843511,
+        -0.0703726048,
+        0.6947647841
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "name": "CLAMP_ENABLE",
+      "direction": "DO",
+      "property": "signal.roborun.clamp_enable",
+      "initial": false
+    },
+    {
+      "name": "GRIP_OK",
+      "direction": "DI",
+      "property": "signal.roborun.grip_ok",
+      "initial": false
+    },
+    {
+      "name": "PART_READY",
+      "direction": "DI",
+      "property": "signal.roborun.part_ready",
+      "initial": false
+    }
+  ],
+  "tools": [
+    {
+      "name": "GRIPPER",
+      "alias": "/RoboRun/UR5/ToolMount/RG2",
+      "joint_alias": "/RoboRun/UR5/ToolMount/RG2/Joint",
+      "tcp_alias": "/RoboRun/UR5/ToolMount/RG2/TCP",
+      "open_aperture": 0.085,
+      "closed_aperture": 0.001,
+      "aperture_tolerance": 0.002,
+      "open_joint_position": 0.05,
+      "closed_joint_position": -0.045,
+      "command_property": "signal.RG2_open"
+    }
+  ]
+}

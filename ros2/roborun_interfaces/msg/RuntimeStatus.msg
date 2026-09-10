@@ -1,0 +1,15 @@
+builtin_interfaces/Time stamp
+uint64 snapshot_sequence
+int64 business_time_ms
+string lifecycle
+string runtime_state
+string backend_state
+string backend_operation_state
+bool terminal
+string outcome
+uint32 active_command_index
+uint32 active_command_line
+string active_command_type
+string active_command_status
+string primary_alarm_code
+string primary_alarm_reason

@@ -1,0 +1,8 @@
+# PAUSE, RESUME, STOP, ESTOP or RESET. The source is diagnostic-only.
+string control
+string source
+---
+uint64 request_id
+string control
+string status
+string message

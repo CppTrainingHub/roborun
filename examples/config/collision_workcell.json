@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "scene_schema": "roborun.workcell.v1",
+  "root_alias": "/RoboRun",
+  "robot_alias": "/RoboRun/UR5",
+  "tool_mount_alias": "/RoboRun/UR5/ToolMount",
+  "tool_alias": "/RoboRun/UR5/ToolMount/RG2",
+  "workpiece_alias": "/RoboRun/Workpiece",
+  "pick_alias": "/RoboRun/PICK",
+  "place_alias": "/RoboRun/PLACE",
+  "workpiece_initial_pose": [0.0, 0.0, 0.04, 0.0, 0.0, 0.0, 1.0],
+  "pick_pose": [-0.2951062214, -0.3900437137, 0.9107258568, 0.3774108144, -0.6413791194, -0.0705928859, 0.6642368153],
+  "place_pose": [-0.4047793199, -0.1161940509, 0.9722340129, -0.0015342691, -0.7157843511, -0.0703726048, 0.6947647841],
+  "pick_radius": 0.06,
+  "place_translation_tolerance": 0.02,
+  "place_rotation_tolerance": 0.10,
+  "joint_tolerance_radians": 0.02,
+  "stable_steps": 3,
+  "default_deadlines_ms": {"move": 1000, "tool": 500, "grip": 500, "safe_state": 500},
+  "signals": [
+    {"name": "PART_READY", "direction": "di", "property": "signal.roborun.part_ready", "initial": false},
+    {"name": "GRIP_OK", "direction": "di", "property": "signal.roborun.grip_ok", "initial": false},
+    {"name": "CLAMP_ENABLE", "direction": "do", "property": "signal.roborun.clamp_enable", "initial": false}
+  ],
+  "tools": [{
+    "name": "GRIPPER",
+    "alias": "/RoboRun/UR5/ToolMount/RG2",
+    "joint_alias": "/RoboRun/UR5/ToolMount/RG2/Joint",
+    "tcp_alias": "/RoboRun/UR5/ToolMount/RG2/TCP",
+    "open_aperture": 0.085,
+    "closed_aperture": 0.001,
+    "aperture_tolerance": 0.002,
+    "open_joint_position": 0.05,
+    "closed_joint_position": -0.045,
+    "command_property": "signal.RG2_open"
+  }],
+  "collisions": [
+    {"first_alias": "/RoboRun/UR5", "second_alias": "/RoboRun/Workpiece", "permitted": false}
+  ]
+}
