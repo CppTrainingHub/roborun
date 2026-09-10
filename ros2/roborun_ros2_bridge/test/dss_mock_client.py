@@ -86,6 +86,20 @@ def run_goal(node, goal):
     return wrapped_result
 
 
+def wait_for_terminal_topics(node, sequence, seconds=5.0):
+    deadline = time.monotonic() + seconds
+    while time.monotonic() < deadline:
+        rclpy.spin_once(node, timeout_sec=0.1)
+        if (node.statuses and node.statuses[-1].terminal and
+                node.statuses[-1].snapshot_sequence == sequence and
+                node.io_states and node.io_states[-1].snapshot_sequence == sequence and
+                node.alarm_states and node.alarm_states[-1].snapshot_sequence == sequence and
+                node.joints):
+            return node.statuses[-1]
+    raise RuntimeError('Timed out waiting for all terminal state Topics at '
+                       f'snapshot_sequence={sequence}')
+
+
 def check_parse_rejection(node):
     if not node.statuses:
         raise RuntimeError('No Runtime status before malformed Goal')
@@ -130,14 +144,8 @@ def main():
         goal.source_name = 'ros2-docker-dds.task'
         wrapped_result = run_goal(node, goal)
 
-        deadline = time.monotonic() + 5.0
-        while time.monotonic() < deadline:
-            rclpy.spin_once(node, timeout_sec=0.1)
-            if node.statuses and node.statuses[-1].terminal:
-                break
-        if not node.statuses or not node.io_states or not node.alarm_states or not node.joints:
-            raise RuntimeError('Bridge did not publish every required state Topic')
-        terminal = node.statuses[-1]
+        terminal = wait_for_terminal_topics(
+            node, wrapped_result.result.final_snapshot_sequence)
         if not terminal.terminal or terminal.outcome != 'program_completed':
             raise RuntimeError('Runtime status Topic did not publish the terminal Runtime outcome')
         if len(node.joints[-1].name) != 6 or len(node.joints[-1].position) != 6:

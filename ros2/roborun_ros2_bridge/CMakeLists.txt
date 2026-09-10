@@ -37,6 +37,11 @@ install(TARGETS roborun_bridge_node DESTINATION lib/${PROJECT_NAME})
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
 if(BUILD_TESTING)
   find_package(ament_cmake_gtest REQUIRED)
+  find_package(Python3 REQUIRED COMPONENTS Interpreter)
+  add_test(NAME roborun_ros2_client_observation_test
+    COMMAND "${Python3_EXECUTABLE}"
+      "${CMAKE_CURRENT_SOURCE_DIR}/../../tests/ros2_client_observation_tests.py")
+  set_tests_properties(roborun_ros2_client_observation_test PROPERTIES TIMEOUT 10)
   ament_add_gtest(roborun_bridge_interface_contract_test test/interface_contract_test.cpp)
   ament_target_dependencies(roborun_bridge_interface_contract_test roborun_interfaces)
   roborun_enable_warnings(roborun_bridge_interface_contract_test)
